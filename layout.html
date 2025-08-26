@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern Responsive Layout</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #f0f2f8;
+      padding: 20px;
+      color: #333;
+    }
+
+    .layout {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      flex: 1 1 220px;
+      background: linear-gradient(135deg, #4a00e0, #8e2de2);
+      padding: 25px;
+      border-radius: 10px;
+      color: white;
+      height: fit-content;
+    }
+
+    .sidebar h3 {
+      margin-bottom: 15px;
+      font-size: 1.3em;
+      border-bottom: 2px solid rgba(255,255,255,0.3);
+      padding-bottom: 8px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      margin-bottom: 12px;
+    }
+
+    .sidebar ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+    }
+
+    .sidebar ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 3 1 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    /* Product Card */
+    .product-card {
+      max-width: 100%;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background-color: #fff;
+      text-align: center;
+    }
+
+    .product-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .product-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.3em;
+      color: #4a00e0;
+    }
+
+    .product-card p {
+      font-size: 0.95em;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .product-card button {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #4a00e0, #8e2de2);
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .product-card button:hover {
+      background: linear-gradient(135deg, #8e2de2, #4a00e0);
+    }
+
+    /* Blog Layout */
+    .blog-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .blog-post {
+      flex: 1 1 calc(33.333% - 20px);
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .blog-post:hover {
+      transform: translateY(-5px);
+    }
+
+    .blog-post h2 {
+      margin-bottom: 10px;
+      font-size: 1.2em;
+      color: #8e2de2;
+    }
+
+    .blog-post p {
+      font-size: 0.95em;
+      color: #444;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .layout { flex-direction: column; }
+      .blog-post { flex: 1 1 100%; }
+      .sidebar { order: -1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="layout">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="#">New Arrivals</a></li>
+        <li><a href="#">Best Sellers</a></li>
+        <li><a href="#">Tech Blog</a></li>
+        <li><a href="#">Support</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Product Card -->
+      <div class="product-card">
+        <img src="https://media.istockphoto.com/id/165853310/photo/classic-chronograph-wristwatch.jpg?s=1024x1024&w=is&k=20&c=4F32rzsGIBQNUeJiCOasvgD2dFiMpfQ-Ugc1PGxopsY=" alt="Wearables" />
+        <h3>Smart Watch Pro</h3>
+        <p>Track your health, fitness, and notifications with style.</p>
+        <button>Shop Now</button>
+      </div>
+
+      <!-- Blog Layout -->
+      <div class="blog-container">
+        <div class="blog-post">
+          <h2>Top 10 Gadgets in 2025</h2>
+          <p>A curated list of the most innovative gadgets this year.</p>
+        </div>
+        <div class="blog-post">
+          <h2>Why Smart Wearables?</h2>
+          <p>Discover how wearables are transforming daily life.</p>
+        </div>
+        <div class="blog-post">
+          <h2>UI Design Trends</h2>
+          <p>Explore the upcoming trends in web and app design.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
