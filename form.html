@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple HTML Form</title>
+</head>
+<body>
+
+<h1>Registration Form</h1>
+
+<form action="/register" method="POST">
+
+  <label for="name">Full Name:</label><br>
+  <input type="text" id="name" name="full_name" required><br><br>
+
+  <label for="email">Email:</label><br>
+  <input type="email" id="email" name="email_address" required><br><br>
+
+  <label for="password">Password:</label><br>
+  <input type="password" id="password" name="user_password" required><br><br>
+
+  <p>Select your favorite fruit:</p>
+  <input type="checkbox" id="apple" name="fruit" value="apple">
+  <label for="apple">Apple</label><br>
+  <input type="checkbox" id="banana" name="fruit" value="banana">
+  <label for="banana">Banana</label><br><br>
+
+  <input type="submit" value="Register Now">
+
+</form>
+
+</body>
+</html>
