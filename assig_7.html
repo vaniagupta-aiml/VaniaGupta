@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Pattern Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #output {
+            font-family: monospace;
+            white-space: pre;
+            margin-top: 20px;
+        }
+        .even {
+            background-color: lightblue;
+        }
+        .odd {
+            background-color: lightgreen;
+        }
+        div.row {
+            padding: 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Number Pattern Generator</h1>
+    <label for="pattern">Select Pattern:</label>
+    <select id="pattern">
+        <option value="triangle">Triangle</option>
+        <option value="pyramid">Pyramid</option>
+        <option value="diamond">Diamond</option>
+    </select>
+    <label for="size">Size:</label>
+    <input type="number" id="size" value="5" min="1" max="20">
+    <button onclick="generate()">Generate</button>
+    <div id="output"></div>
+
+    <script>
+        function generate() {
+            const pattern = document.getElementById('pattern').value;
+            const size = parseInt(document.getElementById('size').value);
+            let output = '';
+            if (pattern === 'triangle') {
+                output = generateTriangle(size);
+            } else if (pattern === 'pyramid') {
+                output = generatePyramid(size);
+            } else if (pattern === 'diamond') {
+                output = generateDiamond(size);
+            }
+            document.getElementById('output').innerHTML = output;
+        }
+
+        function generateTriangle(size) {
+            let result = '';
+            for (let i = 1; i <= size; i++) {
+                let row = '';
+                for (let j = 1; j <= i; j++) {
+                    row += j;
+                }
+                result += `<div class="row ${i % 2 === 0 ? 'even' : 'odd'}">${row}</div>`;
+            }
+            return result;
+        }
+
+        function generatePyramid(size) {
+            let result = '';
+            for (let i = 1; i <= size; i++) {
+                let spaces = ' '.repeat(size - i);
+                let nums = '';
+                for (let j = 1; j <= i; j++) {
+                    nums += j + ' ';
+                }
+                nums = nums.trim();
+                let row = spaces + nums;
+                result += `<div class="row ${i % 2 === 0 ? 'even' : 'odd'}">${row}</div>`;
+            }
+            return result;
+        }
+
+        function generateDiamond(size) {
+            let result = '';
+            // Upper part (pyramid)
+            for (let i = 1; i <= size; i++) {
+                let spaces = ' '.repeat(size - i);
+                let nums = '';
+                for (let j = 1; j <= i; j++) {
+                    nums += j + ' ';
+                }
+                nums = nums.trim();
+                let row = spaces + nums;
+                result += `<div class="row ${i % 2 === 0 ? 'even' : 'odd'}">${row}</div>`;
+            }
+            // Lower part (inverted pyramid)
+            for (let i = size - 1; i >= 1; i--) {
+                let spaces = ' '.repeat(size - i);
+                let nums = '';
+                for (let j = 1; j <= i; j++) {
+                    nums += j + ' ';
+                }
+                nums = nums.trim();
+                let row = spaces + nums;
+                result += `<div class="row ${i % 2 === 0 ? 'even' : 'odd'}">${row}</div>`;
+            }
+            return result;
+        }
+    </script>
+</body>
+</html>
